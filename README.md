@@ -1,7 +1,9 @@
 # pgGeoJSON
 
 pgGeoJSON is a PostgreSQL module providing additional functionality for generating GeoJSON output.
+
 The [PostGIS](https://postgis.net/) extension to PostgreSQL provides a wealth of geospatial functionality within PostgreSQL.  However, many of these are atomic operations, providing the building blocks for users to build queries that build output, but resulting in compplicated queries that are utilised repeatedly.
+
 This has been found to be particularly true with GeoJSON outputs.  pgGeoJSON contains functions for converting an entire table to GeoJSON, with non-geometry columns assumed to be properties of the spatial feature defined by the geometry column.
 
 
@@ -90,4 +92,5 @@ Finally, the pgg_AsGeoJSON function can be used to generate GeoJSON output:
     
     
 ## Advanced 
+ 
 
