@@ -98,5 +98,33 @@ Finally, the pgg_AsGeoJSON function can be used to generate GeoJSON output:
     
     
 ## Advanced 
- 
+
+The pgg_GeoJSON function can also be used to specify columns which shouldn be ignored in the output GeoJSON.  For example, to ignore the column gid from the previous example:
+
+	SELECT pgg_AsGeoJSON('pgg_test', ARRAY['gid'])
+
+Will provide the same output as previously, but without the gid property.
+
+    {
+        "type": "FeatureCollection",
+        "crs": {
+            "type": "name",
+            "properties": {
+                "name": "EPSG:4326"
+            }
+        },
+        "features": [
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [45, 0]
+                },
+                "properties": {
+                    "ref": "a"
+                }
+            },
+            ...
+       ]
+	}
 
