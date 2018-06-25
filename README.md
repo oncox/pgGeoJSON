@@ -11,7 +11,13 @@ This has been found to be particularly true with GeoJSON outputs.  pgGeoJSON con
 
 - ###### Installation
 
-Install pgGeoJSON on a PostgreSQL instance with the PostGIS extension already enabled.
+Clone the repository.
+
+    git clone https://github.com/oncox/pgGeoJSON.git
+
+On a PostgreSQL instance with PostGIS available, copy the pggeojson--[version].sql file and pggeojson.control files to PostgreSQL's /share/extensions directory.
+
+Create the PostGIS extension if it hasn't yet been created, and similarly create the pggeojson extension.
 
 	CREATE EXTENSION postgis;   
 	CREATE EXTENSION pggeojson;

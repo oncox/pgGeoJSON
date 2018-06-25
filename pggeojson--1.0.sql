@@ -1,6 +1,6 @@
 \echo Use "CREATE EXTENSION pair" to load this file. \quit
 
-CREATE OR REPLACE FUNCTION PGG_AsGeoJSON(tbl text, maxdecimaldigits int = 15, ign text[] = '{}'::text[]) RETURNS json AS $$
+CREATE OR REPLACE FUNCTION PGG_AsGeoJSON(tbl regclass, maxdecimaldigits int = 15, ign text[] = '{}'::text[]) RETURNS json AS $$
 DECLARE
   sql text;
   geomcol text;
@@ -49,5 +49,14 @@ BEGIN
 
 
   RETURN result;
+END;
+$$ LANGUAGE plpgsql;
+
+
+--+ Overloaded function to allow specifying ignore columns without needing to specify accurarcy
+
+CREATE OR REPLACE FUNCTION PGG_AsGeoJSON(tbl regclass, ign text[] = '{}'::text[]) RETURNS json AS $$
+BEGIN
+	RETURN PGG_AsGeoJSON(tbl, 15, ign);
 END;
 $$ LANGUAGE plpgsql;
