@@ -1,0 +1,4 @@
+# pgGeoJSON extension
+comment = 'A GeoJSON generating extension for PostGIS'
+default_version = '1.0'
+relocatable = false
